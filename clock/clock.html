@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas 电子钟</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var WINDOW_WIDTH = 1024;
+        var WINDOW_WIDTH = 600;
+
+        window.onload = function () {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            canvas.width = WINDOW_WIDTH;
+            canvas.heigth = WINDOW_HEIGHT;
+
+            render(context);
+        }
+
+        function render(context) {
+            var hours = 12;
+            var minutes = 34;
+            var seconds = 56;
+
+            renderDigit(0, 0, parseFloat(hours / 10), context);
+        }
+
+        function renderDigit(x, y, num, context) {
+            context.fillStyle = 'rgb(0, 102, 153)';
+
+            for (let i = 0; i < digit[num].length; i++) {
+                for (let j = 0; j < digit[num][i].length; j++) {
+                    if (digit[num][i][j] == 1) {
+                        context.beginPath();
+                        context.arc();
+                        context.closePath();
+
+                        context.fill();
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
